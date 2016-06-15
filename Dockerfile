@@ -1,5 +1,5 @@
 # Pull base image
-FROM wolf3d/palmos.sdk.4.0h
+FROM wolf3d/palmos.sdk.4.0
 
 RUN cd /palmdev/setup.4.0 && \
     m68k-palmos-gcc hello.c -o hello && \
