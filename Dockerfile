@@ -1,8 +1,8 @@
 # Pull base image
 FROM wolf3d/debian.4.0-etch
 
-#RUN echo "deb https://archive.debian.org/debian/ etch main non-free contrib" > /etc/apt/sources.list && \
-RUN echo "deb http://archive-klecker.debian.org/debian-archive/ etch main non-free contrib" > /etc/apt/sources.list && \
+RUN echo "nameserver 208.67.222.222" | tee /etc/resolvconf/resolv.conf.d/base > /dev/null
+RUN echo "deb http://archive.debian.org/debian/ etch main non-free contrib" > /etc/apt/sources.list && \
     apt-get update && apt-get install -y gcc-2.95 g++-2.95 alien lynx unzip tar cogito git-core curl build-essential
 
 RUN cd /usr/bin && ls -la *gcc* && rm gcc && ln -s gcc-2.95 gcc && ls -la *gcc*
