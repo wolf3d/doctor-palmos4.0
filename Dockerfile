@@ -1,7 +1,10 @@
 # Pull base image
 FROM wolf3d/debian.4.0-etch
 
-RUN echo "nameserver 208.67.222.222" > /etc/resolv.conf
+RUN cat /etc/resolv.conf
+RUN echo "nameserver 127.0.0.1" > /etc/resolv.conf
+RUN cat /etc/resolv.conf
+
 RUN echo "deb http://archive.debian.org/debian/ etch main non-free contrib" > /etc/apt/sources.list && \
     apt-get update && apt-get install -y gcc-2.95 g++-2.95 alien lynx unzip tar cogito git-core curl build-essential
 
